@@ -58,20 +58,21 @@ class ViewController: UIViewController {
     var image: UIImage?
 
     lazy var loadingOperation: NSBlockOperation = {
-        return NSBlockOperation(block: { [weak self] in
+        return NSBlockOperation(block: { [weak self] ()-> Void in
         
             switch Helper.fileLoadingClosure(self!.imagePath) {
             case .Success(let data):
-                self?.image = UIImage(data: data)
+                self!.image = UIImage(data: data)
                 break
             case .Error(let errorDescription):
                 break
             }
+
         })
     }()
     
     lazy var updateUIOperation: NSBlockOperation = {
-        return NSBlockOperation(block: { [weak self] in
+        return NSBlockOperation(block: { [weak self]() -> Void in
             self!.imageView.image = self!.image
         })
     }()
