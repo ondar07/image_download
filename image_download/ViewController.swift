@@ -59,27 +59,35 @@ class ViewController: UIViewController {
 
     lazy var loadingOperation: NSBlockOperation = {
         return NSBlockOperation(block: { [weak self] ()-> Void in
-        
-            switch Helper.fileLoadingClosure(self!.imagePath) {
-            case .Success(let data):
-                self!.image = UIImage(data: data)
-                break
-            case .Error(let errorDescription):
-                break
+            if let strongSelf = self {
+                switch Helper.fileLoadingClosure(strongSelf.imagePath) {
+                case .Success(let data):
+                    strongSelf.image = UIImage(data: data)
+                    break
+                case .Error(let errorDescription):
+                    break
+                }
             }
-
         })
     }()
     
     lazy var updateUIOperation: NSBlockOperation = {
         return NSBlockOperation(block: { [weak self]() -> Void in
-            self!.imageView.image = self!.image
+            if let strongSelf = self {
+                strongSelf.imageView.image = strongSelf.image
+            }
         })
     }()
     
+    lazy var loadingImageOperationQueue: NSOperationQueue = {
+        let result = NSOperationQueue()
+        result.maxConcurrentOperationCount = 2
+        result.qualityOfService = .UserInitiated
+        return result
+        }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // use NSOperation
         
         self.updateUIOperation.addDependency(self.loadingOperation)
         loadingImageOperationQueue.addOperation(self.loadingOperation)
@@ -90,14 +98,6 @@ class ViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.loadingImageOperationQueue.cancelAllOperations()
     }
-    
-    //let loadingImageOperationQueue = NSOperationQueue.mainQueue()
-    lazy var loadingImageOperationQueue: NSOperationQueue = {
-        let result = NSOperationQueue()
-        result.maxConcurrentOperationCount = 2
-        result.qualityOfService = .UserInitiated
-        return result
-    }()
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -110,7 +110,5 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
