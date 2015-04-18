@@ -53,10 +53,12 @@ class ViewController: UIViewController {
     }
     */
     
+    
     let imagePath = "http://upload.wikimedia.org/wikipedia/commons/6/6b/Big_Sur_June_2008.jpg"
     
     var image: UIImage?
 
+    
     lazy var loadingOperation: NSBlockOperation = {
         return NSBlockOperation(block: { [weak self] ()-> Void in
             if let strongSelf = self {
@@ -65,12 +67,14 @@ class ViewController: UIViewController {
                     strongSelf.image = UIImage(data: data)
                     break
                 case .Error(let errorDescription):
+                    println("error")
                     break
                 }
             }
         })
     }()
-    
+
+
     lazy var updateUIOperation: NSBlockOperation = {
         return NSBlockOperation(block: { [weak self]() -> Void in
             if let strongSelf = self {
@@ -78,7 +82,7 @@ class ViewController: UIViewController {
             }
         })
     }()
-    
+
     lazy var loadingImageOperationQueue: NSOperationQueue = {
         let result = NSOperationQueue()
         result.maxConcurrentOperationCount = 2
@@ -86,13 +90,17 @@ class ViewController: UIViewController {
         return result
         }()
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        println("in viewDidLoad")
         self.updateUIOperation.addDependency(self.loadingOperation)
         loadingImageOperationQueue.addOperation(self.loadingOperation)
         
     }
+    
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
