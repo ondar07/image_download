@@ -11,9 +11,19 @@ import UIKit
 
 class SecondVC: UIViewController {
     
+    @IBOutlet weak var urlString: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //
+        if(segue.identifier == "urlDone") {
+            var VC: ViewController = segue.destinationViewController as! ViewController
+            VC.imagePath = urlString.text
+        }
     }
     
     override func didReceiveMemoryWarning() {

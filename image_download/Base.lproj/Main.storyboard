@@ -82,6 +82,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="177" y="135" width="35" height="30"/>
                                 </variation>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="urlDone" id="tj7-wW-lgs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -98,6 +101,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="urlString" destination="ZyS-9j-xsA" id="vlZ-Xe-8QR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YPL-Fp-wBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
