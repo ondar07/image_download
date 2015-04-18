@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B25ED8B21AE28A630057C5D1 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25ED8B11AE28A630057C5D1 /* SecondVC.swift */; };
 		B2767F9A1AE032B4007C33B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2767F991AE032B4007C33B8 /* AppDelegate.swift */; };
 		B2767F9C1AE032B4007C33B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2767F9B1AE032B4007C33B8 /* ViewController.swift */; };
 		B2767F9F1AE032B4007C33B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2767F9D1AE032B4007C33B8 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B25ED8B11AE28A630057C5D1 /* SecondVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 		B2767F941AE032B4007C33B8 /* image_download.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = image_download.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2767F981AE032B4007C33B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2767F991AE032B4007C33B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				B2767F9B1AE032B4007C33B8 /* ViewController.swift */,
 				B27AD1231AE1460B00645DDA /* Helper.swift */,
 				B2767F9D1AE032B4007C33B8 /* Main.storyboard */,
+				B25ED8B11AE28A630057C5D1 /* SecondVC.swift */,
 				B2767FA01AE032B4007C33B8 /* Images.xcassets */,
 				B2767FA21AE032B4007C33B8 /* LaunchScreen.xib */,
 				B2767F971AE032B4007C33B8 /* Supporting Files */,
@@ -217,6 +220,7 @@
 			files = (
 				B27AD1241AE1460B00645DDA /* Helper.swift in Sources */,
 				B2767F9C1AE032B4007C33B8 /* ViewController.swift in Sources */,
+				B25ED8B21AE28A630057C5D1 /* SecondVC.swift in Sources */,
 				B2767F9A1AE032B4007C33B8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -54,8 +54,8 @@ class ViewController: UIViewController {
     */
     
     
-    let imagePath = "http://upload.wikimedia.org/wikipedia/commons/6/6b/Big_Sur_June_2008.jpg"
-    
+    //var imagePath = "http://upload.wikimedia.org/wikipedia/commons/6/6b/Big_Sur_June_2008.jpg"
+    var imagePath = "http://www.leawo.com/free-resources/lib/upload/ipod-iphone-wallpapers/Nature/zero-velocity.jpg"
     var image: UIImage?
 
     
@@ -94,8 +94,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        println("in viewDidLoad")
+
         self.updateUIOperation.addDependency(self.loadingOperation)
         loadingImageOperationQueue.addOperation(self.loadingOperation)
         
